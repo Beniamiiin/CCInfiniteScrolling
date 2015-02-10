@@ -73,8 +73,10 @@ static CGFloat is_infinityScrollingTriggerOffset = 0;
 - (UIView *)is_createDefaultInfiniteScrollingView 
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+	view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     view.backgroundColor = [UIColor clearColor];
     UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	activity.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | NSLayoutAttributeRightMargin;
     activity.center = view.center;
     [activity startAnimating];
     [view addSubview:activity];
@@ -90,7 +92,10 @@ static CGFloat is_infinityScrollingTriggerOffset = 0;
     if (!self.infiniteScrollingCustomView)
         self.infiniteScrollingCustomView = self.topInfiniteScrollingCustomView;
     if (!self.is_topBox)
+    {
         self.is_topBox = [[UIView alloc] initWithFrame:self.topInfiniteScrollingCustomView.bounds];
+        self.is_topBox.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    }
     
     [self.is_topBox is_removeAllSubviews];
     
@@ -107,7 +112,10 @@ static CGFloat is_infinityScrollingTriggerOffset = 0;
     if (!self.infiniteScrollingCustomView)
         self.infiniteScrollingCustomView = self.bottomInfiniteScrollingCustomView;
     if (!self.is_bottomBox)
+    {
         self.is_bottomBox = [[UIView alloc] initWithFrame:self.bottomInfiniteScrollingCustomView.bounds];
+        self.is_bottomBox.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    }
 
     [self.is_bottomBox is_removeAllSubviews];
     
