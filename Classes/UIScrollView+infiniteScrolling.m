@@ -72,7 +72,7 @@ static CGFloat is_infinityScrollingTriggerOffset = 0;
 
 - (UIView *)is_createDefaultInfiniteScrollingView 
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
     view.backgroundColor = [UIColor clearColor];
     UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activity.center = view.center;
